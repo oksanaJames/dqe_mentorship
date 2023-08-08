@@ -7,5 +7,5 @@ setup(
     packages=['sherlock'],
     description='Description',
     package_data={'': ['*.txt']},
-    entrypoints={'console_scripts': ['sherlock = sherlock.sherly_dog:main']},
+    entry_points={'console_scripts': ['sherlock = sherlock.sherly_dog:main']}
 )
