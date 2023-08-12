@@ -10,25 +10,25 @@
 mixed_elements = [1, 2, '3', 4, None, 10, 33, 'Python', -37.5]
 
 
-def filter_with_for(input_file):
+def filter_with_for(input_el: list):
     # Filtering with for loop
     filtered_elements = []
-    for item in input_file:
+    for item in input_el:
         if isinstance(item, int):
             filtered_elements.append(item)
     return filtered_elements
 
 
-def filter_with_list_comprehension(input_file):
+def filter_with_list_comprehension(input_el: list):
     # Filtering with list comprehension
-    input_file = [item for item in input_file if isinstance(item, int)]
-    return input_file
+    input_array = [item for item in input_el if isinstance(item, int)]
+    return input_array
 
 
-def filter_with_lambda(input_file):
+def filter_with_lambda(input_el: list):
     # Filtering with filter() + lambda
-    input_file = list(filter(lambda x: isinstance(x, int), input_file))
-    return input_file
+    input_array = list(filter(lambda x: isinstance(x, int), input_el))
+    return input_array
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ import socket
 
 def is_valid_ip_with_regex(ip_address):
     # IP address validation with re library
-    try:
+    if isinstance(ip_address, str):
         match = re.match(r"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}", ip_address)
 
         if not bool(match):
@@ -22,29 +22,30 @@ def is_valid_ip_with_regex(ip_address):
                 return False
         print(f"The IP address {ip_address} is valid")
         return True
-    except TypeError:  # not a valid address
-        print("String is expected, but provided {}".format(type(ip_address)))
+    else:
+        print(f"ERROR - IP address {ip_address} should be of string datatype!")
 
 
 def is_valid_ip_socket(ip_address):
     # IP address validation with socket.inet_aton
-    try:
-        socket.inet_pton(socket.AF_INET, ip_address)
-        print(f"The IP address {ip_address} is valid")
-    except AttributeError:  # no inet_pton here, sorry
+    if isinstance(ip_address, str):
         try:
-            socket.inet_aton(ip_address)
+            socket.inet_pton(socket.AF_INET, ip_address)
             print(f"The IP address {ip_address} is valid")
-        except socket.error:
+        except AttributeError:  # no inet_pton here, sorry
+            try:
+                socket.inet_aton(ip_address)
+                print(f"The IP address {ip_address} is valid")
+            except socket.error:
+                print(f"The IP address {ip_address} is not valid")
+                return False
+            return ip_address.count('.') == 3
+        except socket.error:  # not a valid address
             print(f"The IP address {ip_address} is not valid")
             return False
-        return ip_address.count('.') == 3
-    except socket.error:  # not a valid address
-        print(f"The IP address {ip_address} is not valid")
-        return False
-    except TypeError:  # not a valid address
-        print("String is expected, but provided {}".format(type(ip_address)))
-    return True
+        return True
+    else:
+        print(f"ERROR - IP address {ip_address} should be of string datatype!")
 
 
 if __name__ == '__main__':
@@ -59,5 +60,5 @@ if __name__ == '__main__':
     is_valid_ip_socket('192.168.0.1')  # is True
     is_valid_ip_socket('0.0.0.1')  # is True
     is_valid_ip_socket('10.100.500.32')  # is False
-    is_valid_ip_socket(700)  # is False
+    is_valid_ip_socket(700) # is False
     is_valid_ip_socket('127.0.1')  # is True ???
