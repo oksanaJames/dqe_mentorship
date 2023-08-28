@@ -2,7 +2,7 @@ from src.oop.engineer import Engineer
 from src.oop.manager import Manager
 
 
-class Company(object):
+class Company:
     """ Represents a company """
     ENGINEER_PAYMENT = 10
     MANAGER_PAYMENT = 12
@@ -20,7 +20,9 @@ class Company(object):
             if isinstance(employee, Engineer) or isinstance(employee, Manager):
                 self.employees.append(employee)
             else:
-                raise Exception("Unknown employee")
+                raise TypeError("Unknown employee")
+        else:
+            raise Exception("Already employed employee!")
         return employee
 
     def dismiss_employee(self, employee):
@@ -32,11 +34,7 @@ class Company(object):
             employee.notify_dismissed()
             self.employees.remove(employee)
         else:
-            print("Employee doesn't work in this company!")
-
-    def notify_im_leaving(self, employee):
-        """ En employee should call this method when leaving a company """
-        print(f"Unfortunately, employee '{employee}' decided to leave company '{self.name}'!")
+            raise RuntimeError("Employee doesn't work in this company!")
 
     def do_tasks(self, employee):
         """
@@ -82,7 +80,7 @@ class Company(object):
             for empl in self.employees:
                 empl.bonus_to_salary(self)
         else:
-            print("Sorry, company is bankrupt!")
+            raise RuntimeError("Sorry, company is bankrupt!")
 
     def withdraw_money(self, amount):
         self.__money -= amount
@@ -90,6 +88,7 @@ class Company(object):
     def show_money(self):
         """ Displays amount of money that company has """
         print(f"Company {self.name} budget: {self.__money}")
+        return self.__money
 
     def go_bankrupt(self):
         """

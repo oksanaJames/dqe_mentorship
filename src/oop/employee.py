@@ -1,4 +1,4 @@
-from person import *
+from src.oop.person import *
 
 
 class Employee(Person):
@@ -19,7 +19,6 @@ class Employee(Person):
 
     def become_unemployed(self):
         """ Leave current company """
-        self.company.notify_im_leaving(self.name)
         self.company.dismiss_employee(self)
         self.company = None
 
@@ -54,6 +53,7 @@ class Employee(Person):
         """ Shows how much money person has earned """
         if self.is_employed:
             print(f"{self.name} earned {self.__money}")
+        return self.__money
 
     @abc.abstractmethod
     def do_work(self):
