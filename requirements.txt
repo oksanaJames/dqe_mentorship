@@ -2,3 +2,7 @@ pytest
 requests
 pytest-xdist
 pytest-html
+robot
+robotframework-browser
+robotframework-seleniumlibrary
+webdrivermanager
