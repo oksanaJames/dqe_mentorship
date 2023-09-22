@@ -6,3 +6,4 @@ robot
 robotframework-browser
 robotframework-seleniumlibrary
 webdrivermanager
+mysql-connector-python
