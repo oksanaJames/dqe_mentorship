@@ -7,3 +7,7 @@ robotframework-browser
 robotframework-seleniumlibrary
 webdrivermanager
 mysql-connector-python
+pyodbc
+wonderwords
+pandas
+numpy

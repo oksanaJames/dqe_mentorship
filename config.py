@@ -6,5 +6,7 @@ stg = {"ENV_NAME": "stg",
        "SOME_VAR_1": "value1"}
 mysql_db = {"SERVER": "127.0.0.1",
        "DATABASE": "sakila",
+       "DATABASE_NEW": "sherlock",
+       "PORT": 3306,
        "USERNAME": "python_user",
        "PASSWORD": "qwerty123"}
