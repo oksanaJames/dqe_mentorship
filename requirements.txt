@@ -11,3 +11,4 @@ pyodbc
 wonderwords
 pandas
 numpy
+deepdiff
