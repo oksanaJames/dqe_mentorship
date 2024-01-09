@@ -12,3 +12,5 @@ wonderwords
 pandas
 numpy
 deepdiff
+boto3
+awscli
