@@ -1,0 +1,6 @@
+List of actions from command line:
+1. add file to git
+2. see difference between last commit and current version
+3. create commit for specific changes with comment
+4. take last changes from repository to your branch
+Can be useful: https://www.geeksforgeeks.org/git-cheat-sheet/
