@@ -14,3 +14,4 @@ numpy
 deepdiff
 boto3
 awscli
+pytest-env
